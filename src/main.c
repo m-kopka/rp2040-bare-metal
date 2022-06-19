@@ -33,8 +33,8 @@
 
 int main() {
 
-	RESETS_RESET &= ~RESETS_IO_BANK0; 										// clear RESETS_IO_BANK bit
-	while ((RESETS_RESET_DONE & RESETS_IO_BANK0) != RESETS_IO_BANK0); 		// wait for RESET_DONE flag to set
+	RESETS_RESET &= ~RESETS_IO_BANK0; 						// clear RESETS_IO_BANK bit
+	while (!(RESETS_RESET_DONE & RESETS_IO_BANK0)); 		// wait for RESET_DONE flag to set
 
 	IO_BANK0_GPIO25_CTRL = GPIO_FUNC_SIO; 	// set GPIO25 function to SIO
 	SIO_GPIO_OE_SET = GPIO25;				// set GPIO25 output enable
